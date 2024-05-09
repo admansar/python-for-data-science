@@ -1,16 +1,29 @@
-import numpy
 
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+
+def give_bmi(height, weight):
     re = []
-    print(type(height[0]) == float)
     if len(height) is not len(weight):
-        print("should have the same lentgh")
-        return  None
+        print("should have the same length")
+        return None
     for h, w in zip(height, weight):
+        if not (type(h) is float or type(h) is int):
+            print("the height should be int of float")
+            return None
+        if not (type(w) is float or type(w) is int):
+            print("the weight should be int of float")
+            return None
         re.append(w / (h * h))
     return re
 
-list_h = [1.78, 1]
-list_w = [88]
 
-print (give_bmi(list_h, list_w))
+def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+    re = []
+    for item in bmi:
+        if not (type(item) is float or type(item) is int):
+            print("should have a list of int or float")
+            return None
+        if item > limit:
+            re.append(False)
+        else:
+            re.append(True)
+    return re
