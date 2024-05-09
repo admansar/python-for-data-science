@@ -23,7 +23,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
             print("should have a list of int or float")
             return None
         if item > limit:
-            re.append(False)
-        else:
             re.append(True)
+        else:
+            re.append(False)
     return re
