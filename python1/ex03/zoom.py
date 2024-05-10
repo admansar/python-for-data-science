@@ -19,13 +19,15 @@ def ft_zoom(path :str):
     print(ft_load(path)) 
     image = cv2.imread(path)
     w, h = image.shape[:2]
-    new_slice = image[int(w / 10):w - int(w / 10), int(h / 10): h - int(h / 10)]
+    new_slice = image[200:600, 200:600]
+    print("New shape after slicing: ", new_slice.shape)
+    print(new_slice.reshape(-1, 1))
     if is_display() is not True:
         print ("Error: no display found")
         return
     cv2.startWindowThread()
     cv2.imshow('Image', new_slice)
-    cv2.waitKey(0) & 0xFF #0xFF is for ctrl c
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
 
 def main():
