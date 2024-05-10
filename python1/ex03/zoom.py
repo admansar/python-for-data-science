@@ -1,5 +1,5 @@
 import cv2
-import sys
+import os
 from load_image import ft_load
 
 def is_display():
@@ -8,10 +8,7 @@ def is_display():
     this function check if there is a display or not
     """
     build_info = cv2.getBuildInformation()
-    if sys.stdin.isatty():
-        return True
-    else:
-        return False
+    return "DISPLAY" in os.environ
 
 
 def ft_zoom(path :str):
@@ -23,7 +20,7 @@ def ft_zoom(path :str):
     image = cv2.imread(path)
     w, h = image.shape[:2]
     new_slice = image[int(w / 10):w - int(w / 10), int(h / 10): h - int(h / 10)]
-    if is_display():
+    if is_display() is not True:
         print ("Error: no display found")
         return
     cv2.startWindowThread()
