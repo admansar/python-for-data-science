@@ -7,7 +7,7 @@ def check_display():
     this function check if there is a display or not
     """
     build_info = cv2.getBuildInformation()
-    if 'highgui' not in build_info
+    if 'highgui' not in build_info:
         return True
     else:
         return False
