@@ -26,7 +26,7 @@ def ft_zoom(path :str):
         print ("Error: no display found")
         return
     cv2.startWindowThread()
-    cv2.imshow('Image', new_slice)
+    cv2.imshow('Image', new_slice.reshape(-1, 1))
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
