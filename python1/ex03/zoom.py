@@ -31,7 +31,7 @@ def ft_zoom(path :str):
     cv2.destroyAllWindows()
 
 def main():
-    ft_zoom('animal.jpg')
+    ft_zoom('animal.jpeg')
 
 if __name__ == "__main__":
     main()
