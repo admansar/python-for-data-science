@@ -1,13 +1,14 @@
 import cv2
+import sys
 from load_image import ft_load
 
-def check_display():
+def is_display():
     """
     check_display(None) -> bool
     this function check if there is a display or not
     """
     build_info = cv2.getBuildInformation()
-    if 'highgui' not in build_info:
+    if sys.stdin.isatty():
         return True
     else:
         return False
@@ -22,18 +23,16 @@ def ft_zoom(path :str):
     image = cv2.imread(path)
     w, h = image.shape[:2]
     new_slice = image[int(w / 10):w - int(w / 10), int(h / 10): h - int(h / 10)]
-    print(check_display())
-    if check_display() is True:
+    if is_display():
         print ("Error: no display found")
         return
     cv2.startWindowThread()
     cv2.imshow('Image', new_slice)
-    cv2.waitKey(0)
+    cv2.waitKey(0) & 0xFF #0xFF is for ctrl c
     cv2.destroyAllWindows()
 
 def main():
-    ft_zoom("website.jpg")
-
+    ft_zoom('animal.jpg')
 
 if __name__ == "__main__":
     main()
