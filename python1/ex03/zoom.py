@@ -7,7 +7,7 @@ def check_display():
     this function check if there is a display or not
     """
     build_info = cv2.getBuildInformation()
-    if 'highgui' not in build_info:
+    if 'highgui' not in build_info
         return True
     else:
         return False
@@ -25,6 +25,7 @@ def ft_zoom(path :str):
     if check_display() is not True:
         print ("Error: no display found")
         return
+    cv2.startWindowThread()
     cv2.imshow('Image', new_slice)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
