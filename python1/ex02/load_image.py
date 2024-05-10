@@ -1,11 +1,13 @@
-import sys
+import cv2
 
-sys.path.append('/usr/local/python/3.10.13/lib/python3.10/site-packages')
-import cv2 
 
 def ft_load(path: str):
-    image = cv2.imread('project.jpg')
-    print("The shape of the image is",image.shape)
-
-import sys
-print(ft_load(sys.argv[1]))
+    """
+    ft_load(path: str) -> numpy.ndarray
+    this function that loads an image given as a argument,
+    and  prints its format, and its pixels content in RGB format.
+    """
+    image = cv2.imread(path)
+    print("The shape of the image is", image.shape)
+    full_pic = image.reshape(-1, image.shape[-1])
+    return full_pic
