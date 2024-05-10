@@ -22,7 +22,8 @@ def ft_zoom(path :str):
     image = cv2.imread(path)
     w, h = image.shape[:2]
     new_slice = image[int(w / 10):w - int(w / 10), int(h / 10): h - int(h / 10)]
-    if check_display() is not True:
+    print(check_display())
+    if check_display() is True:
         print ("Error: no display found")
         return
     cv2.startWindowThread()
