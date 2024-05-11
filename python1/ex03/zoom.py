@@ -19,6 +19,9 @@ def ft_zoom(path :str):
     print(ft_load(path)) 
     image = cv2.imread(path, 1)
     w, h = image.shape[:2]
+    for i in range(w): 
+    for j in range(h:w): 
+        img[i, j] = sum(img[i, j]) * 0.33
     new_slice = image[100:500, 400:800]
     gray_image = cv2.cvtColor(new_slice, cv2.COLOR_BGR2GRAY)
     print("New shape after slicing: ", gray_image.shape)
@@ -27,7 +30,7 @@ def ft_zoom(path :str):
         print ("Error: no display found")
         return
     cv2.startWindowThread()
-    cv2.imshow('Image', new_slice)
+    cv2.imshow('Image', gray_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
