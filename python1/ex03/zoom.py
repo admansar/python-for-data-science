@@ -17,7 +17,7 @@ def ft_zoom(path :str):
     this function takes the path of the image to zoom into it !
     """
     print(ft_load(path)) 
-    image = cv2.imread(path, 1)
+    image = cv2.imread(path)
     w, h = image.shape[:2]
     for i in range(w): 
     for j in range(h:w): 
