@@ -13,7 +13,7 @@ def is_display():
 
 def ft_zoom(path :str):
     """
-    ft_zoom(path :str)
+    ft_zoom(path :str) -> None
     this function takes the path of the image to zoom into it !
     """
     print(ft_load(path)) 
