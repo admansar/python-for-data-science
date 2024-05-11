@@ -19,9 +19,10 @@ def ft_zoom(path :str):
     print(ft_load(path)) 
     image = cv2.imread(path)
     w, h = image.shape[:2]
-    new_slice = image[200:600, 200:600]
-    print("New shape after slicing: ", new_slice.shape)
-    print(new_slice.reshape(-1, 1))
+    new_slice = image[100:500, 400:800]
+    gray_image = cv2.cvtColor(new_slice, cv2.COLOR_BGR2GRAY)
+    print("New shape after slicing: ", gray_image.shape)
+    print(gray_image.reshape(-1, 1))
     if is_display() is not True:
         print ("Error: no display found")
         return
