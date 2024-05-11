@@ -18,10 +18,6 @@ def ft_zoom(path :str):
     """
     print(ft_load(path)) 
     image = cv2.imread(path)
-    w, h = image.shape[:2]
-    for i in range(w): 
-        for j in range(h): 
-            image[i, j] = sum(image[i, j]) * 0.33
     new_slice = image[100:500, 400:800]
     gray_image = cv2.cvtColor(new_slice, cv2.COLOR_BGR2GRAY)
     print("New shape after slicing: ", gray_image.shape)
