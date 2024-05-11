@@ -17,7 +17,7 @@ def ft_zoom(path :str):
     this function takes the path of the image to zoom into it !
     """
     print(ft_load(path)) 
-    image = cv2.imread(path)
+    image = cv2.imread(path, as_gray=True)
     w, h = image.shape[:2]
     new_slice = image[100:500, 400:800]
     gray_image = cv2.cvtColor(new_slice, cv2.COLOR_BGR2GRAY)
