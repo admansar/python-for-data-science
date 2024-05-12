@@ -21,7 +21,7 @@ def main():
        everything.append(it.reshape(-1, 1))
     full_pic = np.array(everything)
     print(full_pic)
-    full_pic = np.array(transpose(full_pic).T)
+    full_pic = transpose(full_pic).T
     print("the new shape after Transpose :", image.shape)
     print(full_pic) 
     cv2.startWindowThread()
