@@ -1,14 +1,14 @@
 import cv2
-import os
+#import os
 from load_image import ft_load
 
-def is_display():
-    """
-    check_display(None) -> bool
-    this function check if there is a display or not
-    """
-    build_info = cv2.getBuildInformation()
-    return "DISPLAY" in os.environ
+#def is_display():
+#    """
+#    check_display(None) -> bool
+#    this function check if there is a display or not
+#    """
+#    build_info = cv2.getBuildInformation()
+#    return "DISPLAY" in os.environ
 
 
 def ft_zoom(path :str):
@@ -22,9 +22,9 @@ def ft_zoom(path :str):
     gray_image = cv2.cvtColor(new_slice, cv2.COLOR_BGR2GRAY)
     print("New shape after slicing: ", gray_image.shape)
     print(gray_image.reshape(-1, 1))
-    if is_display() is not True:
-        print ("Error: no display found")
-        return
+#    if is_display() is not True:
+#        print ("Error: no display found")
+#        return
     cv2.startWindowThread()
     cv2.imshow('Image', gray_image)
     cv2.waitKey(0)
