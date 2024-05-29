@@ -5,11 +5,8 @@ def transpose(matrix):
     """
     Transposes the given 2D matrix (list of lists).
     """
-    # Get the number of rows and columns in the matrix
     num_rows = len(matrix)
     num_cols = len(matrix[0])
-    
-    # Create a new matrix with the dimensions swapped
     transposed_matrix = []
     for col in range(num_cols):
         new_row = []
