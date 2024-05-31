@@ -1,6 +1,6 @@
-import numpy as np
 import cv2
 from load_image import ft_load
+
 
 def ft_grey(image):
     """
@@ -26,6 +26,7 @@ def ft_blue(image):
     cv2.destroyAllWindows()
     return blue_image
 
+
 def ft_green(image):
     """
     Inverts the green channel of the given color image.
@@ -38,6 +39,7 @@ def ft_green(image):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     return green_image
+
 
 def ft_red(image):
     """
@@ -54,10 +56,13 @@ def ft_red(image):
 
 
 def ft_invert(image):
-   cv2.imshow('Invert', 255 - image)
-   cv2.waitKey(0)
-   cv2.destroyAllWindows()
-   return image;
+    """
+    opposite of colors !!
+    """
+    cv2.imshow('Invert', 255 - image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    return image
 
 
 def main():
@@ -67,5 +72,7 @@ def main():
     ft_red(image)
     ft_blue(image)
     ft_grey(image)
+
+
 if __name__ == "__main__":
     main()

@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 
+
 def transpose(matrix):
     """
     Transposes the given 2D matrix (list of lists).
@@ -13,8 +14,8 @@ def transpose(matrix):
         for row in range(num_rows):
             new_row.append(matrix[row][col])
         transposed_matrix.append(new_row)
-    
     return transposed_matrix
+
 
 def main():
     image = cv2.imread('animal.jpeg')
@@ -29,6 +30,6 @@ def main():
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+
 if __name__ == "__main__":
     main()
-

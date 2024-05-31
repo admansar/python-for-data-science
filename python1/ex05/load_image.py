@@ -9,5 +9,5 @@ def ft_load(path: str):
     """
     image = cv2.imread(path)
     print("The shape of the image is", image.shape)
-    print (image)
+    print(image)
     return image
