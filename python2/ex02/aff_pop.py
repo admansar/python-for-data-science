@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 from load_csv import load
-import numpy as np
 
 
 def country_data(countries: list, country_name: str) -> list:
@@ -36,17 +35,16 @@ def main():
     df = load('population_total.csv')
     if df is None:
         raise Exception("population_total.csv is not there")
-    years = np.array(df.columns[:]).tolist()[1:]
-    countries = np.array(df).tolist()
+    years = [int(item) for item in df.columns[:].tolist()[1:]]
+    countries = df.values.tolist()
     coutries_to_be_in_graph = ['France', 'Morocco']
-    pt = []
-    for name in coutries_to_be_in_graph:
-        pt.append(country_data(countries, name))
+    pt = [country_data(countries, name) for name in coutries_to_be_in_graph]
     popu = [clean_data(item) for item in pt]
+    plt.xlim(1790, 2050)
     for i in range(len(popu)):
         plt.plot(years, popu[i], label=coutries_to_be_in_graph[i])
     plt.title('population projection')
-    xtick = [it for it in years if int(it) % 40 == 0]
+    xtick = [it for it in years if it % 40 == 0 and it < 2080]
     ytick = [0, 2e7, 4e7, 6e7]
     plt.xticks(xtick)
     plt.yticks(ytick, ['0', '2M', '4M', '6M'])
@@ -56,4 +54,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"Error : {e}")
