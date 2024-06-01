@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 from load_csv import load
 import numpy as np
 
+
 def main():
     df = load('life_expectancy_years.csv')
     if df is None:
         return None
-    years=np.array(df.columns[:]).tolist()[1:]
-    countries=np.array(df).tolist()
-    ley=[]
+    years = np.array(df.columns[:]).tolist()[1:]
+    countries = np.array(df).tolist()
+    ley = []
     country_name = 'Morocco'
     for item in countries:
         if item[0] == country_name:
