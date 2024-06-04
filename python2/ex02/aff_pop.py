@@ -37,7 +37,7 @@ def main():
         raise Exception("population_total.csv is not there")
     years = [int(item) for item in df.columns[:].tolist()[1:]]
     countries = df.values.tolist()
-    coutries_to_be_in_graph = ['France', 'Morocco', 'Madagascar', 'Afghanistan']
+    coutries_to_be_in_graph = ['France', 'Morocco']
     pt = [country_data(countries, name) for name in coutries_to_be_in_graph]
     popu = [clean_data(item) for item in pt]
     plt.xlim(1790, 2050)
