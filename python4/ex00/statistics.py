@@ -1,4 +1,21 @@
 def ft_statistics(*args: any, **kwargs: any) -> None:
+    """
+    Calculates basic descriptive statistics for a list of numbers and prints
+    them based on keyword arguments.
+
+    Args:
+        *args (any): Variable-length arguments representing a list of numbers.
+        **kwargs (any): Keyword arguments specifying which statistics to print.
+            Valid keywords include:
+                - 'mean': Calculate and print the mean.
+                - 'median': Calculate and print the median.
+                - 'quartile': Calculate and print the 1st and 3rd quartiles.
+                - 'var': Calculate and print the variance.
+                - 'std': Calculate and print the standard deviation.
+
+    Returns:
+        None
+    """
     try:
         arr = sorted([el for el in args])
         wargs = [el for el in kwargs.items()]
