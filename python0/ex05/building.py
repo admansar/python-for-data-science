@@ -10,7 +10,8 @@ def count_characters(text: str, characters: str) -> int:
 
 
 def string_details(text: str) -> None:
-    """Print counts of uppercase, lowercase, punctuation, spaces, and digits."""
+    """Print counts of uppercase, lowercase, punctuation, spaces,
+    and digits."""
     uppercase = sum(char.isupper() for char in text)
     lowercase = sum(char.islower() for char in text)
     punctuation = count_characters(
@@ -35,8 +36,8 @@ def main():
             return
         print("What is the text to count?")
         string_details(sys.stdin.read())
-    except AssertionError as e:
-        print("AssertionError: ", e)
+    except AssertionError:
+        print("AssertionError")
 
 
 if __name__ == "__main__":

@@ -7,5 +7,5 @@ setup(
     description="A sample test package",
     author="admansar",
     author_email="admansar@1337.ma",
-    Packages=find_packages(),
+    packages=find_packages(),
 )

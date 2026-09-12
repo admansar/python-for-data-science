@@ -14,12 +14,13 @@ def main() -> None:
     """Validate the command-line arguments and print the filtered words."""
     try:
         assert len(sys.argv) == 3, "the arguments are bad"
-        assert sys.argv[2].lstrip("+-").isdigit(), (
-            "the arguments are bad"
-        )
-        print(filterstring(sys.argv[1], int(sys.argv[2])))
+        try:
+            minimum_length = int(sys.argv[2])
+        except ValueError:
+            assert False, "the arguments are bad"
+        print(filterstring(sys.argv[1], minimum_length))
     except AssertionError as error:
-        print("AssertionError: ", error)
+        print(f"AssertionError: {error}")
 
 
 if __name__ == "__main__":

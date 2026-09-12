@@ -28,7 +28,7 @@ def main() -> None:
         assert len(sys.argv) == 2, "the arguments are bad"
         sos(sys.argv[1])
     except AssertionError as error:
-        print("AssertionError: ", error)
+        print(f"AssertionError: {error}")
 
 
 if __name__ == "__main__":
