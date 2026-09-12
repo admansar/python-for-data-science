@@ -1,8 +1,7 @@
-import time 
+import time
 
-t = time.time();
-st = "{:e}".format(t);
-day = time.strftime ("%h %d %Y");
+timestamp = time.time()
+date = time.strftime("%b %d %Y")
 
-print (f"Seconds since January 1, 1970: {t}  or {st} in scientific notation");
-print (f"{day}");
+print(f"Seconds since January 1, 1970: {timestamp:,.4f} or {timestamp:.2e} in scientific notation")
+print(date)

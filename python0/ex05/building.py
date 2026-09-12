@@ -1,43 +1,42 @@
 import sys
 
 
-def count_inside_fun(string, to_check):
-    """count from to_check, how many letters there in string"""
-    count = 0
-    for char in string:
-        if char in to_check:
-            count += 1
-    return count
+def count_characters(text: str, characters: str) -> int:
+    """Return the number of characters in text that occur in characters."""
+    return sum(
+        char in characters
+        for char in text
+    )
 
 
-def punctuation_marks(string):
-    """this function is for the punctuation count"""
-    return count_inside_fun(string, "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")
-
-
-def string_details(string):
-    """this function is to give you the details of the string"""
-    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    lower = "abcdefghijklmnopqrstuvwxyz"
-    punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-    print(f"The text contains {len (string)} characters:")
-    print(count_inside_fun(string, upper), "upper letters")
-    print(count_inside_fun(string, lower), "lower letters")
-    print(count_inside_fun(string, punctuation), "punctuation marks")
-    print(count_inside_fun(string, " "), "spaces")
-    print(count_inside_fun(string, "0123456789"), "digits")
+def string_details(text: str) -> None:
+    """Print counts of uppercase, lowercase, punctuation, spaces, and digits."""
+    uppercase = sum(char.isupper() for char in text)
+    lowercase = sum(char.islower() for char in text)
+    punctuation = count_characters(
+        text, "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    )
+    spaces = sum(char.isspace() for char in text)
+    digits = sum(char.isdigit() for char in text)
+    print(f"The text contains {len(text)} characters:")
+    print(uppercase, "upper letters")
+    print(lowercase, "lower letters")
+    print(punctuation, "punctuation marks")
+    print(spaces, "spaces")
+    print(digits, "digits")
 
 
 def main():
-    """this is the main function"""
-    argc = len(sys.argv)
-    if argc == 2:
-        string_details(sys.argv[1])
-    elif argc == 1:
-        input_text = input("What is the text to count?\n")
-        string_details(input_text)
-    else:
-        print("AssertionError")
+    """Read text from an argument or standard input and print its details."""
+    try:
+        assert len(sys.argv) <= 2, "more than one argument"
+        if len(sys.argv) == 2 and sys.argv[1]:
+            string_details(sys.argv[1])
+            return
+        print("What is the text to count?")
+        string_details(sys.stdin.read())
+    except AssertionError as e:
+        print("AssertionError: ", e)
 
 
 if __name__ == "__main__":

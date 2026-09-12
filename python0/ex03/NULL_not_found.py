@@ -1,18 +1,20 @@
-def NULL_not_found(object: any) -> int:
-	store = type (object);
-	da_ty = (str(store).split ("'"))[1];
-	if da_ty == "NoneType":
-		print (f"Nothing : {object} {store}");
-	elif da_ty == "float":
-		print (f"Cheese : {object} {store}");
-	elif da_ty == "int":
-		print (f"Zero : {object} {store}");
-	elif da_ty == "str" and len (object) == 0:
-		print (f"Empty : {store}");
-	elif da_ty == "bool":
-		print (f"Fake : {object} {store}");
-	else:
-		print ("Type not Found");
-		return 1;
-	return 0;
+from typing import Any
 
+
+def NULL_not_found(object: Any) -> int:
+    """Print a label for a recognised null-like value and return its status."""
+    object_type = type(object)
+    if object_type is type(None):
+        print(f"Nothing : {object} {object_type}")
+    elif object_type is float:
+        print(f"Cheese : {object} {object_type}")
+    elif object_type is int:
+        print(f"Zero : {object} {object_type}")
+    elif object_type is str and len(object) == 0:
+        print(f"Empty : {object_type}")
+    elif object_type is bool:
+        print(f"Fake : {object} {object_type}")
+    else:
+        print("Type not Found")
+        return 1
+    return 0
